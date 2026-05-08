@@ -1,26 +1,130 @@
 @import "tailwindcss";
+@import "@fontsource/space-grotesk/400.css";
+@import "@fontsource/space-grotesk/700.css";
+@import "@fontsource/space-mono/400.css";
+@import "@fontsource/space-mono/700.css";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --yellow: #FFE600;
+  --black: #0A0A0A;
+  --white: #F5F5F0;
+  --red: #FF2D20;
+  --blue: #0057FF;
+  --border: 3px solid #0A0A0A;
+  --shadow: 6px 6px 0px #0A0A0A;
+  --shadow-lg: 10px 10px 0px #0A0A0A;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--white);
+  color: var(--black);
+  font-family: "Space Grotesk", sans-serif;
+  overflow-x: hidden;
+}
+
+.mono {
+  font-family: "Space Mono", monospace;
+}
+
+/* Neo-brutalist card */
+.nb-card {
+  border: var(--border);
+  box-shadow: var(--shadow);
+  background: #fff;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.nb-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0px #0A0A0A;
+}
+
+.nb-card-yellow {
+  border: var(--border);
+  box-shadow: var(--shadow);
+  background: var(--yellow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.nb-card-yellow:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0px #0A0A0A;
+}
+
+.nb-btn {
+  border: var(--border);
+  box-shadow: 4px 4px 0px #0A0A0A;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  text-decoration: none;
+}
+
+.nb-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #0A0A0A;
+}
+
+.nb-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #0A0A0A;
+}
+
+.nb-tag {
+  border: 2px solid var(--black);
+  font-family: "Space Mono", monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  display: inline-block;
+  letter-spacing: 0.05em;
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--white); border-left: 2px solid var(--black); }
+::-webkit-scrollbar-thumb { background: var(--black); }
+
+/* Grid lines background */
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(10,10,10,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10,10,10,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
