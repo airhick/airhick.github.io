@@ -12,12 +12,6 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto w-full">
         {/* Top badge */}
         <div className="flex items-center gap-3 mb-8">
-          <span
-            className="nb-tag"
-            style={{ background: "#FFE600" }}
-          >
-            DISPONIBLE — OPEN TO WORK
-          </span>
           <span className="nb-tag" style={{ background: "#fff" }}>
             GENÈVE, CH
           </span>
