@@ -24,6 +24,7 @@ export interface GithubRepo {
   stack: string[];
   image: string;
   color: string;
+  year: string;
 }
 
 export const projects: Project[] = [
@@ -169,6 +170,7 @@ export const githubRepos: GithubRepo[] = [
     stack: ["TypeScript", "HTML", "JavaScript", "Python", "CSS"],
     image: "/images/goreview.png",
     color: "#0057FF",
+    year: "2026",
   },
   {
     name: "gmaps-scrapper",
@@ -181,6 +183,7 @@ export const githubRepos: GithubRepo[] = [
     stack: ["Python", "HTML"],
     image: "/images/gmaps-scraping.png",
     color: "#FF2D20",
+    year: "2023",
   },
   {
     name: "MDCrawler",
@@ -193,10 +196,11 @@ export const githubRepos: GithubRepo[] = [
     stack: ["Python"],
     image: "/images/web-crawler.png",
     color: "#FFE600",
+    year: "2024",
   },
   {
     name: "minipalantir",
-    description: "Plateforme de visualisation de données inspirée de Palantir",
+    description: "Globe 3D temps réel avec vols, séismes, ISS, caméras IP et qualité de l'air",
     longDescription: "J'ai toujours été fasciné par Palantir, alors j'ai construit ma propre version. MiniPalantir permet d'ingérer des datasets, de visualiser des relations entre entités et d'explorer les données via des dashboards dynamiques. Frontend TypeScript, backend Python.",
     url: "https://github.com/airhick/minipalantir",
     language: "TypeScript",
@@ -205,6 +209,7 @@ export const githubRepos: GithubRepo[] = [
     stack: ["TypeScript", "Python", "JavaScript", "CSS"],
     image: "/images/github-projects.png",
     color: "#0057FF",
+    year: "2024",
   },
   {
     name: "inventairev2",
@@ -217,6 +222,7 @@ export const githubRepos: GithubRepo[] = [
     stack: ["TypeScript", "PHP", "RouterOS", "Python", "HTML"],
     image: "/images/bachelor.png",
     color: "#0A0A0A",
+    year: "2023",
   },
   {
     name: "inventory",
@@ -229,6 +235,7 @@ export const githubRepos: GithubRepo[] = [
     stack: ["TypeScript", "Python", "Batchfile", "Shell"],
     image: "/images/bachelor.png",
     color: "#0A0A0A",
+    year: "2022",
   },
   {
     name: "apifinder",
@@ -241,6 +248,7 @@ export const githubRepos: GithubRepo[] = [
     stack: ["Python", "Shell", "PowerShell", "JavaScript"],
     image: "/images/gmaps-scraping.png",
     color: "#FF2D20",
+    year: "2023",
   },
   {
     name: "AIwebagent",
@@ -253,6 +261,7 @@ export const githubRepos: GithubRepo[] = [
     stack: ["Python", "HTML"],
     image: "/images/web-crawler.png",
     color: "#FFE600",
+    year: "2024",
   },
   {
     name: "stockx-price-monitoring",
@@ -265,6 +274,7 @@ export const githubRepos: GithubRepo[] = [
     stack: ["Python"],
     image: "/images/sneaker-convention.png",
     color: "#FFE600",
+    year: "2023",
   },
   {
     name: "WAsender",
@@ -277,6 +287,7 @@ export const githubRepos: GithubRepo[] = [
     stack: ["JavaScript", "HTML", "Docker"],
     image: "/images/stage.png",
     color: "#25D366",
+    year: "2024",
   },
   {
     name: "passvileads",
@@ -289,6 +300,7 @@ export const githubRepos: GithubRepo[] = [
     stack: ["Python", "HTML", "Shell"],
     image: "/images/gmaps-scraping.png",
     color: "#0A0A0A",
+    year: "2023",
   },
   {
     name: "email_finder",
@@ -301,6 +313,7 @@ export const githubRepos: GithubRepo[] = [
     stack: ["Python", "HTML"],
     image: "/images/gmaps-scraping.png",
     color: "#FF2D20",
+    year: "2023",
   },
   {
     name: "file-converter-API",
@@ -313,6 +326,7 @@ export const githubRepos: GithubRepo[] = [
     stack: ["Python", "Docker", "JavaScript", "HTML"],
     image: "/images/bachelor.png",
     color: "#FF2D20",
+    year: "2023",
   },
   {
     name: "myaurora",
@@ -325,6 +339,7 @@ export const githubRepos: GithubRepo[] = [
     stack: ["HTML", "CSS", "JavaScript"],
     image: "/images/stack.png",
     color: "#0057FF",
+    year: "2023",
   },
   {
     name: "auroraDB",
@@ -337,6 +352,7 @@ export const githubRepos: GithubRepo[] = [
     stack: ["TypeScript", "PLpgSQL", "Docker", "JavaScript", "Python"],
     image: "/images/stack.png",
     color: "#0057FF",
+    year: "2023",
   },
   {
     name: "emailsender",
@@ -349,6 +365,7 @@ export const githubRepos: GithubRepo[] = [
     stack: ["TypeScript", "JavaScript", "CSS"],
     image: "/images/studies.png",
     color: "#0A0A0A",
+    year: "2024",
   },
   {
     name: "genevascrapper",
@@ -361,6 +378,7 @@ export const githubRepos: GithubRepo[] = [
     stack: ["Python", "HTML"],
     image: "/images/gmaps-scraping.png",
     color: "#FF2D20",
+    year: "2023",
   },
   {
     name: "google_review_generator",
@@ -373,6 +391,7 @@ export const githubRepos: GithubRepo[] = [
     stack: ["Python", "CSS"],
     image: "/images/goreview.png",
     color: "#0057FF",
+    year: "2025",
   },
   {
     name: "csv_to_pdf",
@@ -385,6 +404,7 @@ export const githubRepos: GithubRepo[] = [
     stack: ["Python", "HTML", "Docker"],
     image: "/images/bachelor.png",
     color: "#0A0A0A",
+    year: "2023",
   },
   {
     name: "converter",
@@ -397,6 +417,7 @@ export const githubRepos: GithubRepo[] = [
     stack: ["Python", "Shell", "AppleScript"],
     image: "/images/bachelor.png",
     color: "#0A0A0A",
+    year: "2022",
   },
   {
     name: "png_to_dxf",
@@ -409,6 +430,7 @@ export const githubRepos: GithubRepo[] = [
     stack: ["Python"],
     image: "/images/bachelor.png",
     color: "#FFE600",
+    year: "2022",
   },
   {
     name: "PNG-TO-DXF",
@@ -421,6 +443,7 @@ export const githubRepos: GithubRepo[] = [
     stack: ["Python", "HTML", "JavaScript"],
     image: "/images/bachelor.png",
     color: "#FFE600",
+    year: "2022",
   },
   {
     name: "png-to-ddn",
@@ -433,6 +456,7 @@ export const githubRepos: GithubRepo[] = [
     stack: ["Python"],
     image: "/images/bachelor.png",
     color: "#FFE600",
+    year: "2022",
   },
   {
     name: "crawl4ai",
@@ -445,6 +469,7 @@ export const githubRepos: GithubRepo[] = [
     stack: ["Python", "Docker", "JavaScript"],
     image: "/images/web-crawler.png",
     color: "#FFE600",
+    year: "2024",
   },
   {
     name: "lost_items",
@@ -457,6 +482,7 @@ export const githubRepos: GithubRepo[] = [
     stack: ["JavaScript", "HTML", "CSS"],
     image: "/images/studies.png",
     color: "#0057FF",
+    year: "2022",
   },
   {
     name: "mathstudy",
@@ -469,6 +495,7 @@ export const githubRepos: GithubRepo[] = [
     stack: ["HTML"],
     image: "/images/studies.png",
     color: "#FFE600",
+    year: "2022",
   },
   {
     name: "EPFL_math",
@@ -481,6 +508,7 @@ export const githubRepos: GithubRepo[] = [
     stack: ["HTML"],
     image: "/images/studies.png",
     color: "#FFE600",
+    year: "2022",
   },
   {
     name: "flightwacker",
@@ -493,6 +521,7 @@ export const githubRepos: GithubRepo[] = [
     stack: ["Python"],
     image: "/images/stack.png",
     color: "#0057FF",
+    year: "2024",
   },
   {
     name: "celinedionscalper",
@@ -505,6 +534,7 @@ export const githubRepos: GithubRepo[] = [
     stack: ["Python"],
     image: "/images/sneaker-convention.png",
     color: "#FF2D20",
+    year: "2024",
   },
   {
     name: "France-mapped-with-H3-Uber-s-Hexagonal",
@@ -517,6 +547,7 @@ export const githubRepos: GithubRepo[] = [
     stack: ["H3", "GeoJSON"],
     image: "/images/github-projects.png",
     color: "#0057FF",
+    year: "2023",
   },
   {
     name: "gvinvoice",
@@ -529,6 +560,7 @@ export const githubRepos: GithubRepo[] = [
     stack: ["Web"],
     image: "/images/studies.png",
     color: "#0A0A0A",
+    year: "2025",
   },
   {
     name: "anku",
@@ -541,6 +573,7 @@ export const githubRepos: GithubRepo[] = [
     stack: ["TypeScript", "CSS", "JavaScript"],
     image: "/images/stack.png",
     color: "#0A0A0A",
+    year: "2025",
   },
 ];
 

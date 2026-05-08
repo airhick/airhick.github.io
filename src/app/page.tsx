@@ -1,7 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Projects from "@/components/Projects";
-import GitHubRepos from "@/components/GitHubRepos";
+import Timeline from "@/components/Timeline";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -11,8 +10,7 @@ export default function Home() {
     <main>
       <Navbar />
       <Hero />
-      <Projects />
-      <GitHubRepos />
+      <Timeline />
       <About />
       <Contact />
       <Footer />
