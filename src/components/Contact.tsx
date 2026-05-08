@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, GitBranch, Link2, ArrowUpRight } from "lucide-react";
+import { Mail, MapPin, GitBranch, Link2, ArrowUpRight } from "lucide-react";
 import { profile } from "@/lib/projects";
 
 export default function Contact() {
@@ -45,14 +45,6 @@ export default function Contact() {
                 </span>
                 <ArrowUpRight size={16} />
               </a>
-
-              <div
-                className="flex items-center gap-3 px-5 py-4"
-                style={{ border: "3px solid #0A0A0A", background: "#fff", boxShadow: "4px 4px 0px #0A0A0A" }}
-              >
-                <Phone size={20} />
-                <span className="font-bold mono">{profile.phone}</span>
-              </div>
 
               <div
                 className="flex items-center gap-3 px-5 py-4"

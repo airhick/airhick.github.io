@@ -58,7 +58,7 @@ export default function Hero() {
                 Voir mes projets
               </a>
               <a
-                href="mailto:eric.aellen000@gmail.com"
+                href="mailto:eric@aellen.com"
                 className="nb-btn px-6 py-3 text-sm"
                 style={{ background: "#0A0A0A", color: "#FFE600" }}
               >
@@ -117,7 +117,7 @@ export default function Hero() {
                 </div>
                 <div className="flex items-center gap-2 text-sm mono">
                   <Mail size={14} />
-                  <span>eric.aellen000@gmail.com</span>
+                  <span>eric@aellen.com</span>
                 </div>
                 <div className="flex gap-2 mt-2">
                   <a

@@ -5,7 +5,6 @@ import { Menu, X } from "lucide-react";
 const links = [
   { label: "Projets", href: "#projects" },
   { label: "Repos", href: "#repos" },
-  { label: "Stack", href: "#stack" },
   { label: "À propos", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
@@ -51,7 +50,7 @@ export default function Navbar() {
           ))}
           <li>
             <a
-              href="mailto:eric.aellen000@gmail.com"
+              href="mailto:eric@aellen.com"
               className="nb-btn px-4 py-2 text-sm"
               style={{ background: "#0A0A0A", color: "#FFE600" }}
             >
@@ -94,7 +93,7 @@ export default function Navbar() {
             ))}
             <li>
               <a
-                href="mailto:eric.aellen000@gmail.com"
+                href="mailto:eric@aellen.com"
                 className="nb-btn px-4 py-3 text-sm block w-full text-center"
                 style={{ background: "#0A0A0A", color: "#FFE600" }}
                 onClick={() => setOpen(false)}
