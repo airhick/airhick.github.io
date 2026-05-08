@@ -5,63 +5,53 @@
 @import "@fontsource/space-mono/700.css";
 
 :root {
-  --yellow: #FFE600;
-  --black: #0A0A0A;
-  --white: #F5F5F0;
-  --red: #FF2D20;
-  --blue: #0057FF;
-  --border: 3px solid #0A0A0A;
-  --shadow: 6px 6px 0px #0A0A0A;
-  --shadow-lg: 10px 10px 0px #0A0A0A;
+  /* ── cinematic dark palette ── */
+  --bg:          #0B1321;
+  --bg-card:     #0E1B2E;
+  --bg-surface:  #132030;
+  --coral:       #FF9A6C;   /* warm sunset / main accent */
+  --coral-dim:   rgba(255,154,108,0.15);
+  --cyan:        #7EC8E3;   /* code glow / secondary accent */
+  --cyan-dim:    rgba(126,200,227,0.12);
+  --gold:        #F5C07A;   /* featured / highlight */
+  --cream:       #E6D2BE;   /* primary text */
+  --muted:       #4E6B82;   /* secondary text */
+  --border:      #1A2E45;   /* card borders */
+  --border-accent: rgba(255,154,108,0.3);
+  --shadow:      4px 4px 0px rgba(255,154,108,0.14);
+  --shadow-lg:   8px 8px 0px rgba(255,154,108,0.12);
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
-  background-color: var(--white);
-  color: var(--black);
+  background-color: var(--bg);
+  color: var(--cream);
   font-family: "Space Grotesk", sans-serif;
   overflow-x: hidden;
 }
 
-.mono {
-  font-family: "Space Mono", monospace;
-}
+.mono { font-family: "Space Mono", monospace; }
 
-/* Neo-brutalist card */
+/* ── Cards ── */
 .nb-card {
-  border: var(--border);
+  border: 1px solid var(--border);
   box-shadow: var(--shadow);
-  background: #fff;
+  background: var(--bg-card);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .nb-card:hover {
-  transform: translate(-3px, -3px);
-  box-shadow: 9px 9px 0px #0A0A0A;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px rgba(255,154,108,0.22);
 }
 
-.nb-card-yellow {
-  border: var(--border);
-  box-shadow: var(--shadow);
-  background: var(--yellow);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.nb-card-yellow:hover {
-  transform: translate(-3px, -3px);
-  box-shadow: 9px 9px 0px #0A0A0A;
-}
-
+/* ── Buttons ── */
 .nb-btn {
-  border: var(--border);
-  box-shadow: 4px 4px 0px #0A0A0A;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -71,60 +61,69 @@ body {
   gap: 8px;
   transition: transform 0.1s ease, box-shadow 0.1s ease;
   text-decoration: none;
+  color: var(--cream);
 }
 
 .nb-btn:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px #0A0A0A;
+  box-shadow: 5px 5px 0px rgba(255,154,108,0.25);
 }
 
 .nb-btn:active {
-  transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0px #0A0A0A;
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0px rgba(255,154,108,0.15);
 }
 
+/* ── Tags ── */
 .nb-tag {
-  border: 2px solid var(--black);
+  border: 1px solid var(--border-accent);
   font-family: "Space Mono", monospace;
   font-size: 0.7rem;
   font-weight: 700;
   padding: 2px 8px;
   display: inline-block;
   letter-spacing: 0.05em;
+  background: var(--coral-dim);
+  color: var(--coral);
 }
 
+/* ── Section title ── */
 .section-title {
   font-size: clamp(2rem, 5vw, 4rem);
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: -0.02em;
   line-height: 1;
+  color: var(--cream);
 }
 
+/* ── Marquee ── */
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee 25s linear infinite;
+  animation: marquee 28s linear infinite;
 }
 
-.marquee-track:hover {
-  animation-play-state: paused;
-}
+.marquee-track:hover { animation-play-state: paused; }
 
 @keyframes marquee {
   from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  to   { transform: translateX(-50%); }
 }
 
-/* Scrollbar */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: var(--white); border-left: 2px solid var(--black); }
-::-webkit-scrollbar-thumb { background: var(--black); }
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
-/* Grid lines background */
+/* ── Atmospheric grid ── */
 .grid-bg {
-  background-image: 
-    linear-gradient(rgba(10,10,10,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(10,10,10,0.05) 1px, transparent 1px);
-  background-size: 40px 40px;
+  background-image:
+    linear-gradient(var(--cyan-dim) 1px, transparent 1px),
+    linear-gradient(90deg, var(--cyan-dim) 1px, transparent 1px);
+  background-size: 44px 44px;
 }
+
+/* ── Glow helpers ── */
+.glow-coral { box-shadow: 0 0 28px rgba(255,154,108,0.22); }
+.glow-cyan  { box-shadow: 0 0 28px rgba(126,200,227,0.18); }

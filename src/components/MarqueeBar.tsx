@@ -1,7 +1,7 @@
 const items = [
-  "PYTHON", "★", "TYPESCRIPT", "★", "NEXT.JS", "★", "WEB SCRAPING", "★",
-  "AUTOMATION", "★", "LLMs", "★", "REACT", "★", "POSTGRESQL", "★",
-  "DOCKER", "★", "PLAYWRIGHT", "★", "FASTAPI", "★", "GENÈVE, CH", "★",
+  "PYTHON", "·", "TYPESCRIPT", "·", "NEXT.JS", "·", "WEB SCRAPING", "·",
+  "AUTOMATION", "·", "LLMs", "·", "REACT", "·", "POSTGRESQL", "·",
+  "DOCKER", "·", "PLAYWRIGHT", "·", "FASTAPI", "·", "GENÈVE, CH", "·",
 ];
 
 export default function MarqueeBar({ inverted = false }: { inverted?: boolean }) {
@@ -10,12 +10,11 @@ export default function MarqueeBar({ inverted = false }: { inverted?: boolean })
   return (
     <div
       style={{
-        borderTop: "3px solid #0A0A0A",
-        borderBottom: "3px solid #0A0A0A",
-        background: inverted ? "#0A0A0A" : "#FFE600",
-        color: inverted ? "#FFE600" : "#0A0A0A",
+        borderTop: "1px solid #1A2E45",
+        borderBottom: "1px solid #1A2E45",
+        background: inverted ? "rgba(255,154,108,0.06)" : "rgba(126,200,227,0.04)",
         overflow: "hidden",
-        padding: "12px 0",
+        padding: "10px 0",
       }}
     >
       <div className="marquee-track">
@@ -23,7 +22,14 @@ export default function MarqueeBar({ inverted = false }: { inverted?: boolean })
           <span
             key={i}
             className="font-black text-sm uppercase tracking-widest mono whitespace-nowrap"
-            style={{ padding: "0 16px" }}
+            style={{
+              padding: "0 16px",
+              color: item === "·"
+                ? "#1A2E45"
+                : inverted
+                  ? "#FF9A6C"
+                  : "#4E6B82",
+            }}
           >
             {item}
           </span>

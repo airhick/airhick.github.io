@@ -1,52 +1,98 @@
 "use client";
-import Image from "next/image";
-import { MapPin, Mail, GitBranch, Link2, ArrowDown } from "lucide-react";
+import { Mail, GitBranch, ArrowDown } from "lucide-react";
 import { profile } from "@/lib/projects";
+import AsciiAvatar from "./AsciiAvatar";
 
 export default function Hero() {
   return (
     <section
-      className="min-h-screen grid-bg flex flex-col justify-center pt-24 pb-12 px-6"
-      style={{ borderBottom: "3px solid #0A0A0A" }}
+      className="min-h-screen flex flex-col justify-center pt-24 pb-12 px-6"
+      style={{ position: "relative", overflow: "hidden", borderBottom: "1px solid #1A2E45" }}
     >
-      <div className="max-w-7xl mx-auto w-full">
-        {/* Top badge */}
+      {/* Cinematic video background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          opacity: 0.45,
+          zIndex: 0,
+        }}
+      >
+        <source src="/ref.mp4" type="video/mp4" />
+      </video>
+
+      {/* Gradient overlays */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background: "linear-gradient(to bottom, rgba(11,19,33,0.55) 0%, rgba(11,19,33,0.3) 50%, rgba(11,19,33,0.85) 100%)",
+          zIndex: 1,
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background: "linear-gradient(to right, rgba(11,19,33,0.7) 0%, transparent 60%)",
+          zIndex: 1,
+        }}
+      />
+
+      {/* Atmospheric grid on top */}
+      <div
+        className="grid-bg"
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 2,
+          opacity: 0.4,
+        }}
+      />
+
+      {/* Content */}
+      <div className="max-w-7xl mx-auto w-full" style={{ position: "relative", zIndex: 3 }}>
+        {/* Location badge */}
         <div className="flex items-center gap-3 mb-8">
-          <span className="nb-tag" style={{ background: "#fff" }}>
+          <span className="nb-tag">
             GENÈVE, CH
           </span>
         </div>
 
         {/* Main hero grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          {/* Left — main headline */}
+          {/* Left — headline */}
           <div className="lg:col-span-7 flex flex-col justify-center">
             <h1
               className="font-black uppercase leading-none tracking-tighter mb-6"
-              style={{
-                fontSize: "clamp(3.5rem, 10vw, 8rem)",
-                lineHeight: "0.9",
-              }}
+              style={{ fontSize: "clamp(3.5rem, 10vw, 8rem)", lineHeight: "0.9" }}
             >
               ERIC
               <br />
-              <span style={{ color: "#FFE600", WebkitTextStroke: "3px #0A0A0A" }}>
+              <span style={{ color: "#FF9A6C" }}>
                 AELLEN
               </span>
             </h1>
 
-            <div className="flex flex-wrap gap-3 mb-8">
-              <span className="nb-tag text-base" style={{ background: "#fff" }}>
-                <MapPin size={14} className="inline mr-1" />
-                Genève, Suisse
-              </span>
-            </div>
+            <p
+              className="mb-8 font-medium"
+              style={{ fontSize: "clamp(0.95rem, 2vw, 1.15rem)", color: "#E6D2BE", maxWidth: "480px", lineHeight: 1.65, opacity: 0.85 }}
+            >
+              Étudiant la journée, étudiant d'autre chose la nuit.
+            </p>
 
             <div className="flex flex-wrap gap-3">
               <a
                 href="#projects"
                 className="nb-btn px-6 py-3 text-sm"
-                style={{ background: "#FFE600" }}
+                style={{ background: "#FF9A6C", color: "#0B1321", border: "1px solid #FF9A6C" }}
               >
                 <ArrowDown size={16} />
                 Voir mes projets
@@ -54,7 +100,7 @@ export default function Hero() {
               <a
                 href="mailto:eric@aellen.com"
                 className="nb-btn px-6 py-3 text-sm"
-                style={{ background: "#0A0A0A", color: "#FFE600" }}
+                style={{ background: "rgba(14,27,46,0.85)", color: "#7EC8E3", border: "1px solid rgba(126,200,227,0.3)" }}
               >
                 <Mail size={16} />
                 Me contacter
@@ -63,7 +109,8 @@ export default function Hero() {
                 href={profile.github}
                 target="_blank"
                 rel="noreferrer"
-                className="nb-btn px-6 py-3 text-sm bg-white"
+                className="nb-btn px-6 py-3 text-sm"
+                style={{ background: "rgba(14,27,46,0.7)", border: "1px solid #1A2E45" }}
               >
                 <GitBranch size={16} />
                 GitHub
@@ -71,73 +118,13 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right — photo card */}
+          {/* Right — ASCII avatar floating over video */}
           <div className="lg:col-span-5 flex flex-col gap-4">
-            <div
-              className="nb-card overflow-hidden"
-              style={{ background: "#FFE600" }}
-            >
-              <div className="relative w-full" style={{ aspectRatio: "1/1" }}>
-                <Image
-                  src="/images/hero.png"
-                  alt="Eric Aellen"
-                  fill
-                  className="object-cover"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).style.display = "none";
-                  }}
-                />
-                <div
-                  className="absolute inset-0 flex items-center justify-center"
-                  style={{ background: "#FFE600" }}
-                >
-                  <span
-                    className="font-black text-8xl"
-                    style={{ color: "#0A0A0A" }}
-                  >
-                    EA
-                  </span>
-                </div>
-              </div>
-
-              {/* Info strip */}
-              <div
-                className="p-4 flex flex-col gap-2"
-                style={{ borderTop: "3px solid #0A0A0A", background: "#fff" }}
-              >
-                <div className="flex items-center gap-2 text-sm font-bold">
-                  <MapPin size={14} />
-                  <span>Genève, Suisse</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm mono">
-                  <Mail size={14} />
-                  <span>eric@aellen.com</span>
-                </div>
-                <div className="flex gap-2 mt-2">
-                  <a
-                    href={profile.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="nb-btn px-3 py-1 text-xs bg-white flex-1 justify-center"
-                  >
-                    <GitBranch size={12} />
-                    GitHub
-                  </a>
-                  <a
-                    href={profile.linkedin}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="nb-btn px-3 py-1 text-xs flex-1 justify-center"
-                    style={{ background: "#0057FF", color: "#fff" }}
-                  >
-                    <Link2 size={12} />
-                    LinkedIn
-                  </a>
-                </div>
-              </div>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <AsciiAvatar src="/images/avatar.png" cols={130} />
             </div>
 
-            {/* Quick stats */}
+            {/* Stats */}
             <div className="grid grid-cols-3 gap-3">
               {[
                 { n: "55+", label: "Repos" },
@@ -147,10 +134,10 @@ export default function Hero() {
                 <div
                   key={stat.n}
                   className="nb-card p-4 text-center"
-                  style={{ background: "#0A0A0A", color: "#FFE600" }}
+                  style={{ background: "rgba(14,27,46,0.7)", backdropFilter: "blur(8px)", border: "1px solid rgba(255,154,108,0.2)" }}
                 >
-                  <div className="text-3xl font-black mono">{stat.n}</div>
-                  <div className="text-xs font-bold uppercase mt-1 tracking-wide" style={{ color: "#fff" }}>
+                  <div className="text-2xl font-black mono" style={{ color: "#FF9A6C" }}>{stat.n}</div>
+                  <div className="text-xs font-bold uppercase mt-1 tracking-wide" style={{ color: "#4E6B82" }}>
                     {stat.label}
                   </div>
                 </div>
