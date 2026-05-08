@@ -29,8 +29,8 @@ export default function Contact() {
           {/* Left — info */}
           <div>
             <p className="text-xl font-bold leading-relaxed mb-8">
-              Un projet d'automatisation ? Un outil à construire ? Besoin d'un
-              dev full-stack freelance ? Parlons-en.
+              Un projet d'automatisation ? Un outil à construire ? Je suis
+              étudiant, toujours partant pour collaborer. Parlons-en.
             </p>
 
             <div className="flex flex-col gap-4">
@@ -97,8 +97,8 @@ export default function Contact() {
                 ENSEMBLE
               </h3>
               <p style={{ color: "#ccc" }} className="leading-relaxed mb-6">
-                Disponible pour des missions freelance, collaborations sur des
-                projets tech, et opportunités full-time à Genève ou remote.
+                Étudiant en bachelor à Genève, je cherche des collaborations,
+                stages et projets tech intéressants.
               </p>
 
               <ul className="space-y-3">

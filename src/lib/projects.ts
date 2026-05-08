@@ -552,7 +552,7 @@ export const githubRepos: GithubRepo[] = [
   {
     name: "gvinvoice",
     description: "Générateur de factures professionnel",
-    longDescription: "J'ai créé cet outil pour générer rapidement des factures propres. Interface simple, export direct. Je l'utilise pour mes missions freelance.",
+    longDescription: "J'ai créé cet outil pour générer rapidement des factures propres. Interface simple, export direct. Je l'utilise pour mes projets perso et collaborations.",
     url: "https://github.com/airhick/gvinvoice",
     language: "—",
     isPrivate: false,
