@@ -119,30 +119,8 @@ export default function Hero() {
           </div>
 
           {/* Right — ASCII avatar floating over video */}
-          <div className="lg:col-span-5 flex flex-col gap-4">
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <AsciiAvatar src="/images/avatar.png" cols={130} />
-            </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-3">
-              {[
-                { n: "55+", label: "Repos" },
-                { n: "5+", label: "Ans d'exp." },
-                { n: "8+", label: "Langages" },
-              ].map((stat) => (
-                <div
-                  key={stat.n}
-                  className="nb-card p-4 text-center"
-                  style={{ background: "rgba(14,27,46,0.7)", backdropFilter: "blur(8px)", border: "1px solid rgba(255,154,108,0.2)" }}
-                >
-                  <div className="text-2xl font-black mono" style={{ color: "#FF9A6C" }}>{stat.n}</div>
-                  <div className="text-xs font-bold uppercase mt-1 tracking-wide" style={{ color: "#4E6B82" }}>
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
+          <div className="lg:col-span-5 flex justify-center">
+            <AsciiAvatar src="/images/avatar.png" cols={130} />
           </div>
         </div>
       </div>
