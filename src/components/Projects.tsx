@@ -148,6 +148,9 @@ export default function Projects() {
                   {project.description}
                 </p>
 
+                {/* Visual separator */}
+                <div className="w-12 h-1 mb-5" style={{ background: "#FFE600", border: "1px solid #0A0A0A" }} />
+
                 {/* Stack */}
                 <div className="flex flex-wrap gap-1.5 mb-6">
                   {project.stack.map((s) => (
@@ -242,9 +245,13 @@ export default function Projects() {
                 <span className="mono font-bold text-sm flex-shrink-0 ml-4">{project.year}</span>
               </div>
 
-              <p className="leading-relaxed mb-6" style={{ color: "#333" }}>
-                {project.longDescription}
-              </p>
+              <div className="mb-6 flex flex-col gap-4">
+                {project.longDescription.split("\n\n").map((para, i) => (
+                  <p key={i} className="leading-relaxed text-sm" style={{ color: "#333" }}>
+                    {para}
+                  </p>
+                ))}
+              </div>
 
               <div className="mb-6">
                 <p className="font-black uppercase text-xs tracking-widest mono mb-3 pb-2" style={{ borderBottom: "2px solid #0A0A0A" }}>
