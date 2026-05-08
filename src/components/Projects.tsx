@@ -1,16 +1,13 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, GitBranch, ExternalLink, X } from "lucide-react";
+import { GitBranch, ExternalLink, X, ChevronRight } from "lucide-react";
 import { projects } from "@/lib/projects";
 
 export default function Projects() {
   const [active, setActive] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
   const project = projects[active];
-
-  const prev = () => setActive((i) => (i - 1 + projects.length) % projects.length);
-  const next = () => setActive((i) => (i + 1) % projects.length);
 
   return (
     <section id="projects" className="py-20 px-6" style={{ borderBottom: "3px solid #0A0A0A" }}>
@@ -26,205 +23,179 @@ export default function Projects() {
           </div>
         </div>
 
-        {/* Timeline track */}
-        <div className="mb-10 relative">
-          {/* Line */}
-          <div
-            className="absolute top-5 left-0 right-0 h-0.5"
-            style={{ background: "#0A0A0A", height: "3px" }}
-          />
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
 
-          {/* Dots */}
-          <div className="flex justify-between relative">
-            {projects.map((p, i) => (
-              <button
-                key={p.id}
-                onClick={() => setActive(i)}
-                className="flex flex-col items-center gap-2 group"
-                title={p.title}
-              >
-                {/* Dot */}
-                <div
-                  style={{
-                    width: i === active ? "20px" : "12px",
-                    height: i === active ? "20px" : "12px",
-                    background: i === active ? "#FFE600" : "#fff",
-                    border: `3px solid #0A0A0A`,
-                    boxShadow: i === active ? "3px 3px 0 #0A0A0A" : "2px 2px 0 #0A0A0A",
-                    transition: "all 0.15s ease",
-                    flexShrink: 0,
-                  }}
-                />
-                {/* Year label */}
-                <span
-                  className="mono font-black text-xs hidden sm:block"
-                  style={{
-                    color: i === active ? "#0A0A0A" : "#aaa",
-                    fontSize: "10px",
-                    transition: "color 0.15s",
-                  }}
-                >
-                  {p.year}
-                </span>
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Active project display */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Image */}
-          <div
-            className="relative overflow-hidden"
-            style={{
-              aspectRatio: "16/9",
-              border: "3px solid #0A0A0A",
-              boxShadow: "8px 8px 0 #0A0A0A",
-              background: project.color,
-            }}
-          >
-            <Image
-              key={project.id}
-              src={project.image}
-              alt={project.title}
-              fill
-              sizes="700px"
-              className="object-cover"
-              onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
-            />
-            {/* Category */}
-            <div className="absolute top-4 left-4">
-              <span className="nb-tag text-xs" style={{ background: "#FFE600" }}>
-                {project.category}
-              </span>
-            </div>
-            {/* Year */}
-            <div className="absolute top-4 right-4">
-              <span className="nb-tag text-xs" style={{ background: "#0A0A0A", color: "#FFE600" }}>
-                {project.year}
-              </span>
-            </div>
-          </div>
-
-          {/* Info */}
-          <div className="flex flex-col justify-between">
-            <div>
-              {/* Progress indicator */}
-              <p className="mono text-xs font-bold mb-3" style={{ color: "#aaa" }}>
-                {String(active + 1).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}
-              </p>
-
-              <h3
-                className="font-black uppercase tracking-tight mb-4 leading-none"
-                style={{ fontSize: "clamp(1.5rem, 3vw, 2.5rem)" }}
-              >
-                {project.title}
-              </h3>
-
-              <p className="text-base leading-relaxed mb-6" style={{ color: "#444" }}>
-                {project.description}
-              </p>
-
-              {/* Stack */}
-              <div className="flex flex-wrap gap-2 mb-6">
-                {project.stack.map((s) => (
-                  <span key={s} className="nb-tag text-xs" style={{ background: "#FFE600" }}>
-                    {s}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Actions */}
-            <div className="flex items-center justify-between pt-4" style={{ borderTop: "3px solid #0A0A0A" }}>
-              <div className="flex gap-2">
-                <button
-                  className="nb-btn px-4 py-2 text-sm bg-white"
-                  onClick={() => setModalOpen(true)}
-                >
-                  En savoir plus
-                  <ChevronRight size={14} />
-                </button>
-                {project.github && (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="nb-btn p-2 bg-white"
-                    title="GitHub"
-                  >
-                    <GitBranch size={16} />
-                  </a>
-                )}
-                {project.link && (
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="nb-btn p-2"
-                    style={{ background: "#FFE600" }}
-                    title="Voir le projet"
-                  >
-                    <ExternalLink size={16} />
-                  </a>
-                )}
-              </div>
-
-              {/* Nav arrows */}
-              <div className="flex gap-2">
-                <button
-                  className="nb-btn p-2 bg-white"
-                  onClick={prev}
-                  aria-label="Précédent"
-                >
-                  <ChevronLeft size={18} />
-                </button>
-                <button
-                  className="nb-btn p-2"
-                  style={{ background: "#0A0A0A", color: "#FFE600" }}
-                  onClick={next}
-                  aria-label="Suivant"
-                >
-                  <ChevronRight size={18} />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Mini cards row */}
-        <div className="mt-8 grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-10 gap-2">
-          {projects.map((p, i) => (
-            <button
-              key={p.id}
-              onClick={() => setActive(i)}
-              className="relative overflow-hidden"
-              style={{
-                aspectRatio: "1/1",
-                border: `2px solid ${i === active ? "#FFE600" : "#0A0A0A"}`,
-                boxShadow: i === active ? "3px 3px 0 #FFE600" : "2px 2px 0 #0A0A0A",
-                background: p.color,
-                transition: "all 0.12s ease",
-                outline: "none",
-              }}
-              title={p.title}
-            >
-              <Image
-                src={p.image}
-                alt={p.title}
-                fill
-                sizes="80px"
-                className="object-cover"
-                onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
+          {/* LEFT — vertical timeline */}
+          <div className="lg:col-span-4">
+            <div className="relative">
+              {/* Vertical line */}
+              <div
+                className="absolute top-0 bottom-0"
+                style={{ left: "10px", width: "3px", background: "#0A0A0A" }}
               />
-              {i === active && (
-                <div
-                  className="absolute inset-0"
-                  style={{ background: "rgba(255,230,0,0.3)" }}
+
+              <div className="flex flex-col">
+                {projects.map((p, i) => {
+                  const isActive = i === active;
+                  return (
+                    <button
+                      key={p.id}
+                      onClick={() => setActive(i)}
+                      className="relative flex items-start gap-4 text-left group"
+                      style={{ paddingBottom: i < projects.length - 1 ? "28px" : "0" }}
+                    >
+                      {/* Dot */}
+                      <div
+                        style={{
+                          width: isActive ? "22px" : "14px",
+                          height: isActive ? "22px" : "14px",
+                          background: isActive ? "#FFE600" : "#fff",
+                          border: "3px solid #0A0A0A",
+                          boxShadow: isActive ? "3px 3px 0 #0A0A0A" : "2px 2px 0 #0A0A0A",
+                          flexShrink: 0,
+                          marginTop: "2px",
+                          transition: "all 0.15s ease",
+                          zIndex: 1,
+                          position: "relative",
+                        }}
+                      />
+
+                      {/* Text */}
+                      <div
+                        className="flex-1 pb-1"
+                        style={{
+                          opacity: isActive ? 1 : 0.45,
+                          transition: "opacity 0.15s ease",
+                        }}
+                      >
+                        <span
+                          className="mono font-black text-xs block mb-0.5"
+                          style={{ color: isActive ? "#0A0A0A" : "#888", letterSpacing: "0.08em" }}
+                        >
+                          {p.year}
+                        </span>
+                        <span
+                          className="font-black uppercase text-sm leading-tight block"
+                          style={{ color: "#0A0A0A" }}
+                        >
+                          {p.title}
+                        </span>
+                        <span
+                          className="text-xs mt-0.5 block"
+                          style={{ color: "#888" }}
+                        >
+                          {p.category}
+                        </span>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          {/* RIGHT — active project detail */}
+          <div className="lg:col-span-8">
+            <div
+              key={project.id}
+              style={{
+                border: "3px solid #0A0A0A",
+                boxShadow: "8px 8px 0 #0A0A0A",
+                background: "#fff",
+                overflow: "hidden",
+              }}
+            >
+              {/* Image */}
+              <div
+                className="relative w-full"
+                style={{ aspectRatio: "16/9", background: project.color, borderBottom: "3px solid #0A0A0A" }}
+              >
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  sizes="800px"
+                  className="object-cover"
+                  onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
                 />
-              )}
-            </button>
-          ))}
+                <div className="absolute top-4 left-4 flex gap-2">
+                  <span className="nb-tag text-xs" style={{ background: "#FFE600" }}>
+                    {project.category}
+                  </span>
+                </div>
+                <div className="absolute top-4 right-4">
+                  <span className="nb-tag text-xs" style={{ background: "#0A0A0A", color: "#FFE600" }}>
+                    {project.year}
+                  </span>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="p-6">
+                {/* Counter */}
+                <p className="mono text-xs font-bold mb-2" style={{ color: "#bbb" }}>
+                  {String(active + 1).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}
+                </p>
+
+                <h3
+                  className="font-black uppercase tracking-tight mb-4 leading-none"
+                  style={{ fontSize: "clamp(1.4rem, 2.5vw, 2rem)" }}
+                >
+                  {project.title}
+                </h3>
+
+                <p className="text-sm leading-relaxed mb-5" style={{ color: "#444" }}>
+                  {project.description}
+                </p>
+
+                {/* Stack */}
+                <div className="flex flex-wrap gap-1.5 mb-6">
+                  {project.stack.map((s) => (
+                    <span key={s} className="nb-tag text-xs" style={{ background: "#FFE600" }}>
+                      {s}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Actions */}
+                <div
+                  className="flex items-center gap-3 pt-4"
+                  style={{ borderTop: "2px solid #0A0A0A" }}
+                >
+                  <button
+                    className="nb-btn px-4 py-2 text-sm bg-white"
+                    onClick={() => setModalOpen(true)}
+                  >
+                    En savoir plus
+                    <ChevronRight size={14} />
+                  </button>
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="nb-btn p-2 bg-white"
+                      title="GitHub"
+                    >
+                      <GitBranch size={16} />
+                    </a>
+                  )}
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="nb-btn p-2"
+                      style={{ background: "#FFE600" }}
+                      title="Voir le projet"
+                    >
+                      <ExternalLink size={16} />
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -240,7 +211,6 @@ export default function Projects() {
             style={{ border: "3px solid #FFE600", boxShadow: "12px 12px 0 #FFE600", background: "#fff" }}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Image */}
             <div
               className="relative w-full"
               style={{ aspectRatio: "16/9", background: project.color, borderBottom: "3px solid #0A0A0A" }}
